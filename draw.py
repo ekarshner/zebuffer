@@ -4,7 +4,19 @@ from math import *
 from gmath import *
 
 def scanline_convert(polygons, i, screen, zbuffer ):
-    pass
+    a = polygons[i][1]
+    b = polygons[i+1][1]
+    c = polygons[i+2][1]
+
+
+    ytop = max(max(a, b), c)
+    ybot = min(min(a, b), c)
+    ymid = max(min(a,b), min(max(a,b),c))
+
+    xtop =
+    xbot =
+    xmid =
+
 
 def add_polygon( polygons, x0, y0, z0, x1, y1, z1, x2, y2, z2 ):
     add_point(polygons, x0, y0, z0);
@@ -43,6 +55,7 @@ def draw_polygons( matrix, screen, zbuffer, color ):
                        int(matrix[point+2][1]),
                        matrix[point+2][2],
                        screen, zbuffer, color)
+            scanline_convert(polygons, 0, screen, zbuffer)
         point+= 3
 
 
