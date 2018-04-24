@@ -8,14 +8,40 @@ def scanline_convert(polygons, i, screen, zbuffer ):
     b = polygons[i+1][1]
     c = polygons[i+2][1]
 
-
     ytop = max(max(a, b), c)
     ybot = min(min(a, b), c)
     ymid = max(min(a,b), min(max(a,b),c))
 
-    xtop =
-    xbot =
-    xmid =
+    for mod in range(2):
+        if ytop = polygons[i+mod][1]:
+            xtop = polygons[i+mod][0]
+        if ybot = polygons[i+mod][1]:
+            xbot = polygons[i+mod][0]
+        if ymid = polygons[i+mod][1]
+            xmid = polygons[i+mod][0]
+
+    if ((ytop - ybot) == 0):
+        return
+
+    delx = (xtop - xbot) / (ytop - ybot)
+
+    if((ymid - ybot) == 0):
+        delx1 = 0
+    else:
+        delx1 = (xmid - xbot) / (ymid - ybot)
+
+    for height in range(ybot, ytop):
+
+        if height = ymid:
+            if((ytop - ymid) == 0):
+                break
+            else:
+                delx1 = (xtop - xmid) / (ytop - ymid)
+
+
+        draw_line( xbot, height, z, x1, height, z, screen, zbuffer, 000)
+
+
 
 
 def add_polygon( polygons, x0, y0, z0, x1, y1, z1, x2, y2, z2 ):
