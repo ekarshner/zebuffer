@@ -20,27 +20,31 @@ def scanline_convert(polygons, i, screen, zbuffer ):
         if ymid = polygons[i+mod][1]
             xmid = polygons[i+mod][0]
 
-    if ((ytop - ybot) == 0):
+    if ytop == ybot:
         return
 
     delx = (xtop - xbot) / (ytop - ybot)
 
-    if((ymid - ybot) == 0):
+    if ymid == ybot:
         delx1 = 0
     else:
         delx1 = (xmid - xbot) / (ymid - ybot)
 
+    x1 = xbot
+
     for height in range(ybot, ytop):
 
+        #test for switching deltax1
         if height = ymid:
-            if((ytop - ymid) == 0):
+            if ytop == ymid:
                 break
             else:
                 delx1 = (xtop - xmid) / (ytop - ymid)
 
-
         draw_line( xbot, height, z, x1, height, z, screen, zbuffer, 000)
 
+        xbot += delx
+        x1 += delx1
 
 
 
