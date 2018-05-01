@@ -13,11 +13,11 @@ def scanline_convert(polygons, i, screen, zbuffer ):
     ymid = max(min(a,b), min(max(a,b),c))
 
     for mod in range(2):
-        if ytop = polygons[i+mod][1]:
+        if ytop == polygons[i+mod][1]:
             xtop = polygons[i+mod][0]
-        if ybot = polygons[i+mod][1]:
+        if ybot == polygons[i+mod][1]:
             xbot = polygons[i+mod][0]
-        if ymid = polygons[i+mod][1]
+        if ymid == polygons[i+mod][1]:
             xmid = polygons[i+mod][0]
 
     if ytop == ybot:
@@ -35,7 +35,7 @@ def scanline_convert(polygons, i, screen, zbuffer ):
     for height in range(ybot, ytop):
 
         #test for switching deltax1
-        if height = ymid:
+        if height == ymid:
             if ytop == ymid:
                 break
             else:
